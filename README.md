@@ -1,8 +1,10 @@
 # TUTORIAL PARA INICIAR OS SEUS ESTUDOS
 
 ## Informações importantes:
--# Buscamos padronizar nossas atividades através de softwares, bibliotecas, e outros para que possamos sempre estar avançando em conjunto com o grupo que fazem parte do Núcleo de Ciência de Dados. 
--# Padronização através do Sofware [Visual Studio Code ](https://www.python.org/downloads/](https://code.visualstudio.com/Download)<br>
+> Buscamos padronizar nossas atividades através de softwares, bibliotecas, e outros para que possamos sempre estar avançando em conjunto com o grupo que fazem parte do Núcleo de Ciência de Dados. 
+> Padronização através do
+> Software [Visual Studio Code ](https://code.visualstudio.com/Download)<br>
+> Linguagem de Programação [Python](https://www.python.org/downloads/)<br>
 
 ## Instalar o Python:
 
