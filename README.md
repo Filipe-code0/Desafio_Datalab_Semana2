@@ -9,38 +9,33 @@
   - Baixe o Instaladdor mais recente do Python<br>
     - Execute o Instalador e marque a opção: Add Python to PATH<br>
   - Para a instalação no Linux:
-    - sudo apt update
-    - sudo apt install python3 python3-pip -y
+    - `sudo apt update
+       sudo apt install python3 python3-pip -y`
 + Utilizando o VSCODE, navegue pelas extenções e instale o __Pacote Jupyter__
   - Utilizeramos o Jupyter Notebook integrado ao VSCODE para nossas atividades, não sendo obrigatório, caso deseja.
 
-### Passo a passo para Linux:
-```bash
-sudo apt update
-sudo apt install python3 python3-pip -y
-```
-
-## Instalar o kaggle, kagglehub, polars
-Depois de instalar o python é só rodar: `pip install -r requirements.txt`
-
-## Fazer autenticação no Kaggle
+## Instalação das bibliotecas necessárias, sendo elas: kaggle, kagglehub, polars
+Após clonar este repositório em sua maquina, instale as bibliotecas através do terminal pelo comando `pip install -r requirements.txt`
+ 
+## Dataset utilizado nos encontros
+Para que você possa baixar e utilizar o dataset, é necessário fazer a autenticação no Kaggle.
 Dataset disponível em: [IEEE Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data)<br>
 Crie sua conta, é possível também logar com a sua conta Google.<br>
 Autenticação é feita via número de celular, não vai funcionar se não fizer.<br>
 A inscrição na competição é necessária para ter acesso aos dados, na aba dados vai aparecer um botão indicando que você se inscreva, é só clicar nele.
 
-## Criar um API Token de autenticação
+### Criar um API Token de autenticação
 No site, vá em configurações, novo API Token e crie o seu próprio, guarde o bem porque só vai ser possível ver uma vez, copie o comando similar ao abaixo que aparecer nessa hora.<br>
 `mkdir -p ~/.kaggle && echo SEU_API_TOKEN > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token`<br>
 Rodar o comando copiado, para vincular o seu token a sua máquina.
 
-## Baixar a base: 
+### Para baixar o dataset, cole este comando no terminal:
 `kaggle competitions download -c ieee-fraud-detection`
 
-## Extrair a base: 
+### Extrair a base: 
 `unzip ieee-fraud-detection.zip`
 
-## Carregar os datasets e começar a inspecionar os dados
+### Carregar os datasets e começar a inspecionar os dados
 O código base está em `view_data.py`<br>
 Para rodar o comando é: `python3 view_data.py --data_path=path_do_dataset
 
