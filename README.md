@@ -1,17 +1,18 @@
 # TUTORIAL PARA INICIAR OS SEUS ESTUDOS
 
 ## Informações importantes:
-> Buscamos padronizar nossas atividades através de softwares, bibliotecas, e outros para que possamos sempre estar avançando em conjunto com o grupo que fazem parte do Núcleo de Ciência de Dados. 
-> Padronização através do
-> Software [Visual Studio Code ](https://code.visualstudio.com/Download)<br>
-> Linguagem de Programação [Python](https://www.python.org/downloads/)<br>
+> Buscamos padronizar nossas atividades através de softwares, bibliotecas, e outros para que possamos sempre estar avançando em conjunto com o grupo que fazem parte do Núcleo de Ciência de Dados. Nossos encontros ocorrerão de forma __Híbrida__, sendo 1 vez ao mês (todo primeiro sábado do mês) com o Orientador Pablo de forma __oneline__, o restante dos encontros será feito de forma __presencial__ no __Laboratório de Estatística no 1J - 1J110 às 10:00.__
 
-## Instalar o Python:
-
-### Passo a passo para Windows:
-Download disponível em: [PYTHON3](https://www.python.org/downloads/)<br>
-Baixe o instalador mais recente do python<br>
-Execute o instalador e marque a opção: Add Python to PATH<br>
+## Padronização
++ Software [Visual Studio Code](https://code.visualstudio.com/Download)<br>
++ Linguagem de Programação [Python](https://www.python.org/downloads/)<br>
+  - Baixe o Instaladdor mais recente do Python<br>
+    - Execute o Instalador e marque a opção: Add Python to PATH<br>
+  - Para a instalação no Linux:
+    - sudo apt update
+    - sudo apt install python3 python3-pip -y
++ Utilizando o VSCODE, navegue pelas extenções e instale o __Pacote Jupyter__
+  - Utilizeramos o Jupyter Notebook integrado ao VSCODE para nossas atividades, não sendo obrigatório, caso deseja.
 
 ### Passo a passo para Linux:
 ```bash
