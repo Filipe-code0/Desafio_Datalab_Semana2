@@ -1,46 +1,178 @@
-# TUTORIAL PARA INICIAR OS SEUS ESTUDOS
+# 📚 Tutorial para Iniciar seus Estudos
 
-## Informações importantes:
-> Buscamos padronizar nossas atividades através de softwares, bibliotecas, e outros para que possamos sempre estar avançando em conjunto com o grupo que fazem parte do Núcleo de Ciência de Dados. Nossos encontros ocorrerão de forma __Híbrida__, sendo 1 vez ao mês (todo primeiro sábado do mês) com o Orientador Pablo de forma __oneline__, o restante dos encontros será feito de forma __presencial__ no __Laboratório de Estatística no 1J - 1J110 às 10:00.__
+## 📌 Informações Importantes
 
-## Padronização
-+ Software [Visual Studio Code](https://code.visualstudio.com/Download)<br>
-+ Linguagem de Programação [Python](https://www.python.org/downloads/)<br>
-  - Baixe o Instaladdor mais recente do Python<br>
-    - Execute o Instalador e marque a opção: Add Python to PATH<br>
-  - Para a instalação no Linux:
-    - `sudo apt update
-       sudo apt install python3 python3-pip -y`
-+ Utilizando o VSCODE, navegue pelas extenções e instale o __Pacote Jupyter__
-  - Utilizeramos o Jupyter Notebook integrado ao VSCODE para nossas atividades, não sendo obrigatório, caso deseja.
+Buscamos padronizar nossas atividades através de softwares, bibliotecas e metodologias, permitindo que todos os integrantes do Núcleo de Ciência de Dados evoluam em conjunto.
 
-## Instalação das bibliotecas necessárias, sendo elas: kaggle, kagglehub, polars
-Após clonar este repositório em sua maquina, instale as bibliotecas através do terminal pelo comando `pip install -r requirements.txt`
- 
-## Dataset utilizado nos encontros
-Para que você possa baixar e utilizar o dataset, é necessário fazer a autenticação no Kaggle.
-Dataset disponível em: [IEEE Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data)<br>
-Crie sua conta, é possível também logar com a sua conta Google.<br>
-Autenticação é feita via número de celular, não vai funcionar se não fizer.<br>
-A inscrição na competição é necessária para ter acesso aos dados, na aba dados vai aparecer um botão indicando que você se inscreva, é só clicar nele.
+Nossos encontros ocorrerão de forma **híbrida**:
 
-### Criar um API Token de autenticação
-No site, vá em configurações, novo API Token e crie o seu próprio, guarde o bem porque só vai ser possível ver uma vez, copie o comando similar ao abaixo que aparecer nessa hora.<br>
-`mkdir -p ~/.kaggle && echo SEU_API_TOKEN > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token`<br>
-Rodar o comando copiado, para vincular o seu token a sua máquina.
+- 📅 **1 vez ao mês** (todo primeiro sábado do mês) com o orientador **Pablo**, de forma **online**;
+- 🏫 Os demais encontros serão realizados presencialmente no **Laboratório de Estatística — sala 1J110**, às **10:00**.
 
-### Para baixar o dataset, cole este comando no terminal:
-`kaggle competitions download -c ieee-fraud-detection`
+---
 
-### Extrair a base: 
-`unzip ieee-fraud-detection.zip`
+# ⚙️ Padronização do Ambiente
 
-### Carregar os datasets e começar a inspecionar os dados
-O código base está em `view_data.py`<br>
-Para rodar o comando é: `python3 view_data.py --data_path=path_do_dataset
+## 🖥️ Softwares Utilizados
 
-##  Fazer os joinds das bases de dados
-O código para fazer o join está em `build_data.py`<br>
-Para executar o comando é: `python3 build_data.py --input=path_do_dataset --output=path_onde_deve_ser_salvo_o_joined`<br>
-O script aceita tanto o transaction como o identity como input e lida internamente para fazer o join.
-Tanto o input quanto o output precisa conter a extensão .csv para ser salvo, o código não tem suporte para outras extensões.
+- Editor de código: [Visual Studio Code](https://code.visualstudio.com/Download)
+- Linguagem principal: [Python](https://www.python.org/downloads/)
+
+---
+
+## 🐍 Instalando o Python
+
+### Windows
+
+1. Baixe a versão mais recente do Python;
+2. Execute o instalador;
+3. **IMPORTANTE:** marque a opção:
+
+```bash
+Add Python to PATH
+```
+
+---
+
+### Linux (Ubuntu/Debian)
+
+Execute os comandos abaixo no terminal:
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip -y
+```
+
+---
+
+## 📓 Configurando o VSCode
+
+No VSCode, acesse a aba de extensões e instale o pacote:
+
+- **Jupyter**
+
+Utilizaremos o **Jupyter Notebook integrado ao VSCode** durante as atividades.  
+O uso não é obrigatório, mas é altamente recomendado.
+
+---
+
+# 📦 Instalação das Bibliotecas Necessárias
+
+Após clonar este repositório em sua máquina, instale as dependências com:
+
+```bash
+pip install -r requirements.txt
+```
+
+As principais bibliotecas utilizadas serão:
+
+- `kaggle`
+- `kagglehub`
+- `polars`
+
+---
+
+# 📊 Dataset Utilizado nos Encontros
+
+O dataset utilizado será o:
+
+- [IEEE Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data)
+
+---
+
+## 🔐 Autenticação no Kaggle
+
+Para baixar o dataset, será necessário criar e autenticar sua conta no Kaggle.
+
+### Passos
+
+1. Crie sua conta no Kaggle;
+2. É possível entrar utilizando sua conta Google;
+3. Faça a verificação via número de celular (**obrigatório**);
+4. Inscreva-se na competição para obter acesso aos dados.
+
+Na aba **Data**, aparecerá um botão solicitando sua participação na competição — basta clicar nele.
+
+---
+
+# 🔑 Criando um API Token do Kaggle
+
+1. Acesse:
+   - `Profile → Settings → API`
+2. Clique em:
+   - **Create New API Token**
+
+O Kaggle irá baixar automaticamente um arquivo `.json` contendo seu token.
+
+> ⚠️ Guarde esse arquivo com cuidado — ele só pode ser visualizado uma única vez.
+
+---
+
+## Linux/macOS — Configuração do Token
+
+Execute o comando abaixo substituindo `SEU_API_TOKEN` pelo conteúdo do token:
+
+```bash
+mkdir -p ~/.kaggle && echo SEU_API_TOKEN > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+```
+
+---
+
+# ⬇️ Baixando o Dataset
+
+Execute o comando abaixo no terminal:
+
+```bash
+kaggle competitions download -c ieee-fraud-detection
+```
+
+---
+
+# 📂 Extraindo os Arquivos
+
+```bash
+unzip ieee-fraud-detection.zip
+```
+
+---
+
+# 🔎 Inspecionando os Dados
+
+O código base para exploração inicial dos dados está em:
+
+```bash
+view_data.py
+```
+
+Para executar:
+
+```bash
+python3 view_data.py --data_path=CAMINHO_DO_DATASET
+```
+
+---
+
+# 🔗 Realizando o Join das Bases
+
+O script responsável por realizar o join entre as bases está em:
+
+```bash
+build_data.py
+```
+
+Para executar:
+
+```bash
+python3 build_data.py --input=CAMINHO_DO_DATASET --output=CAMINHO_DO_ARQUIVO_FINAL.csv
+```
+
+---
+
+## 📌 Observações Importantes
+
+- O script aceita tanto os arquivos `transaction` quanto `identity` como entrada;
+- O join é tratado automaticamente pelo código;
+- Tanto o caminho de entrada quanto o de saída devem conter a extensão `.csv`;
+- Atualmente o script não possui suporte para outros formatos de arquivo.
+
+---
