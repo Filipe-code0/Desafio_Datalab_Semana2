@@ -1,178 +1,100 @@
-# 📚 Tutorial para Iniciar seus Estudos
+# 🍷 Desafio DataLab: Primeiros Passos na Análise de Dados com Polars
 
-## 📌 Informações Importantes
-
-Buscamos padronizar nossas atividades através de softwares, bibliotecas e metodologias, permitindo que todos os integrantes do Núcleo de Ciência de Dados evoluam em conjunto.
-
-Nossos encontros ocorrerão de forma **híbrida**:
-
-- 📅 **1 vez ao mês** (todo primeiro sábado do mês) com o orientador **Pablo**, de forma **online**;
-- 🏫 Os demais encontros serão realizados presencialmente no **Laboratório de Estatística — sala 1J110**, às **10:00**.
+## 🎯 Objetivo
+Realizar uma **Análise Exploratória de Dados (EDA)** inicial utilizando a **biblioteca Polars**.
 
 ---
 
-# ⚙️ Padronização do Ambiente
+## 📌 Regra de Ouro
 
-## 🖥️ Softwares Utilizados
-
-- Editor de código: [Visual Studio Code](https://code.visualstudio.com/Download)
-- Linguagem principal: [Python](https://www.python.org/downloads/)
-
----
-
-## 🐍 Instalando o Python
-
-### Windows
-
-1. Baixe a versão mais recente do Python;
-2. Execute o instalador;
-3. **IMPORTANTE:** marque a opção:
-
-```bash
-Add Python to PATH
-```
+> Para **CADA etapa abaixo**, você deve escrever um comentário no código explicando:
+>
+> - O que o código está fazendo;
+> - Por que essa etapa é importante para um Cientista de Dados.
 
 ---
 
-### Linux (Ubuntu/Debian)
+# 🚀 Etapa 1: Conhecendo o Terreno (Importação e Inspeção)
 
-Execute os comandos abaixo no terminal:
+### ✅ Atividades
 
-```bash
-sudo apt update
-sudo apt install python3 python3-pip -y
-```
+- [ ] Importe a biblioteca `polars`.
+- [ ] Carregue o arquivo **winemag-data_first150k.csv** em um DataFrame.
+- [ ] Imprima as **5 primeiras linhas** do DataFrame para vermos a "cara" dos dados.
+- [ ] Descubra e imprima a quantidade total de **linhas** e **colunas** do DataFrame.
+- [ ] Descubra quais são os **tipos de dados** de cada coluna.
 
----
-
-## 📓 Configurando o VSCode
-
-No VSCode, acesse a aba de extensões e instale o pacote:
-
-- **Jupyter**
-
-Utilizaremos o **Jupyter Notebook integrado ao VSCode** durante as atividades.  
-O uso não é obrigatório, mas é altamente recomendado.
+### 🎯 O que você deve responder
+- Quantas linhas existem?
+- Quantas colunas existem?
+- Quais são os tipos de dados presentes?
 
 ---
 
-# 📦 Instalação das Bibliotecas Necessárias
+# 🧹 Etapa 2: A Arte da Limpeza (Lidando com Valores Nulos)
 
-Após clonar este repositório em sua máquina, instale as dependências com:
+Na vida real, os dados raramente vêm perfeitos. Precisamos saber onde estão os "buracos".
 
-```bash
-pip install -r requirements.txt
-```
+### ✅ Atividades
 
-As principais bibliotecas utilizadas serão:
+- [ ] Verifique quantas informações nulas (ausentes) existem em cada coluna.
+- [ ] A coluna `price` (preço) é muito importante para nós.
+- [ ] Crie um novo DataFrame que exclua todas as linhas onde o preço seja nulo.
 
-- `kaggle`
-- `kagglehub`
-- `polars`
-
----
-
-# 📊 Dataset Utilizado nos Encontros
-
-O dataset utilizado será o:
-
-- [IEEE Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data)
+### 🎯 O que você deve responder
+- Quais colunas possuem valores nulos?
+- Quantos valores nulos existem em cada uma?
+- Quantas linhas restaram após remover os preços nulos?
 
 ---
 
-## 🔐 Autenticação no Kaggle
+# 🔎 Etapa 3: Respondendo a Perguntas com Filtros
 
-Para baixar o dataset, será necessário criar e autenticar sua conta no Kaggle.
+O time de negócios quer saber sobre vinhos específicos.
 
-### Passos
+### ✅ Atividades
 
-1. Crie sua conta no Kaggle;
-2. É possível entrar utilizando sua conta Google;
-3. Faça a verificação via número de celular (**obrigatório**);
-4. Inscreva-se na competição para obter acesso aos dados.
+- [ ] Filtre o DataFrame para mostrar apenas os vinhos do país (`country`) **"Brazil"**.
+- [ ] Filtre os vinhos que:
+  - [ ] Possuem pontuação (`points`) maior ou igual a **90**;
+  - [ ] Possuem preço (`price`) menor que **20 dólares**.
 
-Na aba **Data**, aparecerá um botão solicitando sua participação na competição — basta clicar nele.
-
----
-
-# 🔑 Criando um API Token do Kaggle
-
-1. Acesse:
-   - `Profile → Settings → API`
-2. Clique em:
-   - **Create New API Token**
-
-O Kaggle irá baixar automaticamente um arquivo `.json` contendo seu token.
-
-> ⚠️ Guarde esse arquivo com cuidado — ele só pode ser visualizado uma única vez.
+### 🎯 O que você deve responder
+- Quantos vinhos brasileiros existem na base?
+- Quantos vinhos atendem aos critérios de alta qualidade e baixo custo?
 
 ---
 
-## Linux/macOS — Configuração do Token
+# 📊 Etapa 4: Agrupamento e Insights (O poder do groupby)
 
-Execute o comando abaixo substituindo `SEU_API_TOKEN` pelo conteúdo do token:
+Vamos encontrar os padrões gerais dos nossos dados.
 
-```bash
-mkdir -p ~/.kaggle && echo SEU_API_TOKEN > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
-```
+### ✅ Atividades
 
----
+#### 1️⃣ Países e preço médio
 
-# ⬇️ Baixando o Dataset
+- [ ] Agrupe os dados por país (`country`).
+- [ ] Calcule a média de preço (`price`) dos vinhos de cada país.
+- [ ] Ordene o resultado do maior para o menor preço médio.
 
-Execute o comando abaixo no terminal:
+#### 2️⃣ Melhor Chardonnay da base
 
-```bash
-kaggle competitions download -c ieee-fraud-detection
-```
+- [ ] Descubra qual é a pontuação máxima (`points`) recebida pelos vinhos da variedade (`variety`) **"Chardonnay"**.
 
----
-
-# 📂 Extraindo os Arquivos
-
-```bash
-unzip ieee-fraud-detection.zip
-```
+### 🎯 O que você deve responder
+- Qual país possui o maior preço médio?
+- Qual foi a maior pontuação obtida por um Chardonnay?
 
 ---
 
-# 🔎 Inspecionando os Dados
+# ⚙️ Etapa 5: Engenharia de Recursos (Criando novas colunas)
 
-O código base para exploração inicial dos dados está em:
+Um bom cientista de dados cria suas próprias métricas.
 
-```bash
-view_data.py
-```
+### ✅ Atividades
 
-Para executar:
+- [ ] Crie uma nova coluna chamada `custo_beneficio`.
+- [ ] Essa coluna deve ser calculada pela divisão:
 
-```bash
-python3 view_data.py --data_path=CAMINHO_DO_DATASET
-```
-
----
-
-# 🔗 Realizando o Join das Bases
-
-O script responsável por realizar o join entre as bases está em:
-
-```bash
-build_data.py
-```
-
-Para executar:
-
-```bash
-python3 build_data.py --input=CAMINHO_DO_DATASET --output=CAMINHO_DO_ARQUIVO_FINAL.csv
-```
-
----
-
-## 📌 Observações Importantes
-
-- O script aceita tanto os arquivos `transaction` quanto `identity` como entrada;
-- O join é tratado automaticamente pelo código;
-- Tanto o caminho de entrada quanto o de saída devem conter a extensão `.csv`;
-- Atualmente o script não possui suporte para outros formatos de arquivo.
-
----
+```text
+points / price
